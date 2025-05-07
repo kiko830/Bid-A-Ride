@@ -27,7 +27,6 @@ public class AuctionsController : ControllerBase
         var query = _context.Auctions.OrderBy(x => x.Item.Make).AsQueryable();
         if (!string.IsNullOrEmpty(date))
         {
-            var dateTime = DateTime.Parse(date);
             query = query.Where(x => x.UpdatedAt.CompareTo(DateTime.Parse(date).ToUniversalTime()) > 0);
         }
         return await query.ProjectTo<AuctionDto>(_mapper.ConfigurationProvider).ToListAsync();
