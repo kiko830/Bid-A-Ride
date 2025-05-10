@@ -17,4 +17,17 @@ public class AuctionEntityTests
         // Assert
         Assert.True(result);
     }
+
+     [Fact]
+    public void HasReservePrice_ReservePriceIsZero_False()
+    {
+        // Arrange
+        var auction = new Auction{Id=Guid.NewGuid(), ReservePrice = 0};
+      
+        // Act
+        var result = auction.HasResevePrice();
+
+        // Assert
+        Assert.False(result);
+    }
 }
