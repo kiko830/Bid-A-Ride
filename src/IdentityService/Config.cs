@@ -45,6 +45,7 @@ public static class Config
                     "auctionApp"
                 },
                 AccessTokenLifetime = 3600*24*30,
+                AlwaysIncludeUserClaimsInIdToken = true
             }
         };
 }
