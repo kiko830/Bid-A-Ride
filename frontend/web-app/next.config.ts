@@ -15,3 +15,4 @@ const nextConfig: NextConfig = {
 };
 
 export default withFlowbiteReact(nextConfig);
+// export default nextConfig;
