@@ -5,6 +5,7 @@ import { Toast } from "flowbite-react";
 import ToasterProvider from "./providers/ToasterProvider";
 import SignalRProvider from "./providers/SignalRProvider";
 import { getCurrentUser } from "./actions/authActions";
+import { ThemeConfig } from "flowbite-react";
 
 export const metadata: Metadata = {
   title: "Bid-A-Ride",
@@ -17,13 +18,15 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const user = await getCurrentUser();
+  const notifyUrl = process.env.NOTIFY_URL;
   return (
     <html lang="en">
       <body>
+        <ThemeConfig dark={false} />
         <ToasterProvider />
         <Navbar />
         <main className="container mx-auto px-5 pt-10">
-          <SignalRProvider user={user}>
+          <SignalRProvider user={user} notifyUrl={notifyUrl!}>
             {children}
           </SignalRProvider>
         </main>

@@ -24,7 +24,7 @@ export default function Search() {
     }
 
     return (
-        <div className='flex w-[50%] items-center border-2 rounded-full py-2 shadow-sm'>
+        <div className='max-md:order-3 max-md:col-span-2 flex  items-center  rounded-full md:py-2 py-1 shadow-sm '>
             <input 
                 onChange={onChange}
                 onKeyDown={(e: any) => {
@@ -33,12 +33,12 @@ export default function Search() {
                 type="text" 
                 value={searchValue}
                 placeholder='Search for cars by make, model or color'
-                className='input-custom text-sm text-gray-600'
+                className='input-custom text-sm text-gray-600 '
             />
             <button>
-                <FaSearch size={34}
+                <FaSearch 
                     onClick={search} 
-                    className='bg-red-400 text-white rounded-full p-2 cursor-pointer mx-2' 
+                    className='bg-red-400 text-white rounded-full p-2 cursor-pointer mx-2 size-8 md:size-9' 
                 />
             </button>
         </div>

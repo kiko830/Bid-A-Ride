@@ -17,21 +17,21 @@ export default async function Details({ params }: { params: { id: string } }) {
 
   return (
     <div>
-      <div className="flex justify-between">
-        <div className="flex items-center gap-3">
+      <div className="lg:flex lg:justify-between">
+        <div className="lg:flex lg:justify-between w-1/2">
           <Heading title={`${data.make} ${data.model}`} />
           {user?.username === data.seller && 
-          <>
+          <div className="flex gap-3">
           <EditButton id={data.id} />
           <DeleteButton id={data.id} />
-          </>}
+          </div>}
         </div>
-        <div className="flex gap-3">
+        <div className="flex gap-3 mt-2">
           <h3 className="text-2xl font-semibold">Time remaining</h3>
           <CountdownTimer auctionEnd={data.auctionEnd} />
         </div>
       </div>
-      <div className="grid grid-cols-2 gap-6 mt-3">
+      <div className="grid lg:grid-cols-2 gap-6 mt-3 ">
         <div className="w-full bg-gray-200 relative aspect-[4/3] rounded-lg overflow-hidden">
           <CarImage imageUrl={data.imageUrl} />
         </div>

@@ -49,10 +49,10 @@ export default function Filters() {
     const filterBy = useParamsStore(state => state.filterBy);
 
     return (
-        <div className='flex justify-between items-center mb-4'>
-             <div>
+        <div className='flex flex-col gap-2 xl:flex-row xl:justify-between xl:items-center mb-4'>
+             <div className='max-sm:flex max-sm:flex-col'>
                 <span className='uppercase text-sm text-gray-500 mr-2'>Filter by</span>
-                <ButtonGroup>
+                <ButtonGroup outline>
                     {filterButtons.map(({label, icon: Icon, value }) => (
                         <Button key={value} 
                             onClick={() => setParams({filterBy: value})}
@@ -65,9 +65,9 @@ export default function Filters() {
                     ))}
                 </ButtonGroup>
             </div>
-            <div>
+            <div className='max-sm:flex max-sm:flex-col'>
                 <span className='uppercase text-sm text-gray-500 mr-2'>Order by</span>
-                <ButtonGroup>
+                <ButtonGroup outline>
                     {orderButtons.map(({label, icon: Icon, value}) => (
                         <Button
                             key={value}
@@ -80,9 +80,9 @@ export default function Filters() {
                     ))}
                 </ButtonGroup>
             </div>
-            <div>
+            <div className='max-sm:flex max-sm:flex-col'>
                 <span className='uppercase text-sm text-gray-500 mr-2'>Page Size</span>
-                <ButtonGroup>
+                <ButtonGroup outline>
                     {pageSizeButtons.map((value, i) => (
                         <Button key={i} onClick={() =>
                                 setParams({pageSize: value})}

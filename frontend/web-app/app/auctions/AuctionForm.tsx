@@ -68,7 +68,7 @@ export default function AuctionForm({ auction }: Props) {
             {pathname === '/auctions/create' && 
             <>
                 <Input label='Image URL' name='imageUrl' control={control} rules={{ required: 'Image url is required' }} />
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid md:grid-cols-2 md:gap-3 text-wrap">
                     <Input label='Reserve price (leave blank for no reserve)' name='reservePrice' type='number' control={control} />
                     <DateInput
                         label='Auction end date/time'

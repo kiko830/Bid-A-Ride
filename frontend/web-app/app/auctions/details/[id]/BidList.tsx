@@ -44,10 +44,11 @@ export default function BidList({user, auction}: Props) {
 
     if (loading) return <h3>Loading bids...</h3>
   return (
-    <div className="rounded-lg shadow-md">
-        <div className='py-2 px-4 bg-white'>
-            <div className='sticky top-0 bg-white p-2'>
+    <div className="rounded-lg shadow-md bg-zinc-50">
+        <div className='py-2 px-4'>
+            <div className='sticky top-0  p-2'>
                 <Heading title={`Current high bid is $${numberWithCommas(highBid)}`} />
+                <hr />
             </div>
         </div>
 
