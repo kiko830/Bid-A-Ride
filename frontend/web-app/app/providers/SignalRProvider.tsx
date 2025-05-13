@@ -33,7 +33,7 @@ export default function SignalRProvider({ children, user, notifyUrl}: Props) {
                     auction={auction} 
                     finishedAuction={finishedAuction}
                 />,
-            error: (err) => 'Auction finished'
+            error: () => 'Auction finished'
         }, {success: {duration: 10000, icon: null}})
     }, [])
 

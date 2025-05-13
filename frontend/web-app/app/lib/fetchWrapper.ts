@@ -13,7 +13,7 @@ async function get(url:string) {
     return handelResponse(response);
 }
 
-async function post(url:string, body: {}) {
+async function post(url:string, body: object) {
     const requestOptions ={
         method: 'POST',
         headers: await getHeaders(),
@@ -25,7 +25,7 @@ async function post(url:string, body: {}) {
     return handelResponse(response);
 }
 
-async function put(url:string, body: {}) {
+async function put(url:string, body: object) {
     const requestOptions ={
         method: 'PUT',
         headers: await getHeaders(),
@@ -65,10 +65,10 @@ async function handelResponse(response: Response) {
     let data;
     try{
         data = JSON.parse(text);
-    }catch(e){
+    }catch{
         data = text;
     }
-    // const data = text && JSON.parse(text);
+   
     if (!response.ok) {
         const error = {
             status: response.status,

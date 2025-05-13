@@ -50,14 +50,14 @@ export default function Filters() {
 
     return (
         <div className='flex flex-col gap-2 xl:flex-row xl:justify-between xl:items-center mb-4'>
-             <div className='max-sm:flex max-sm:flex-col'>
+             <div className='flex md:items-center '>
                 <span className='uppercase text-sm text-gray-500 mr-2'>Filter by</span>
-                <ButtonGroup outline>
+                <ButtonGroup outline className='max-sm:flex max-sm:flex-col '>
                     {filterButtons.map(({label, icon: Icon, value }) => (
                         <Button key={value} 
                             onClick={() => setParams({filterBy: value})}
                             color={`${filterBy === value ? 'red' : 'gray'}`}
-                             className='focus:ring-0'
+                             className='focus:ring-0 max-sm:rounded-lg max-sm:border'
                         >
                             <Icon className='mr-3 h-4 w-4'/>
                             {label}
@@ -65,22 +65,22 @@ export default function Filters() {
                     ))}
                 </ButtonGroup>
             </div>
-            <div className='max-sm:flex max-sm:flex-col'>
+            <div className='flex md:items-center'>
                 <span className='uppercase text-sm text-gray-500 mr-2'>Order by</span>
-                <ButtonGroup outline>
+                <ButtonGroup outline className='max-sm:flex max-sm:flex-col '>
                     {orderButtons.map(({label, icon: Icon, value}) => (
                         <Button
                             key={value}
                             onClick={() => setParams({orderBy: value})}
                             color={`${orderBy === value ? 'red' : 'gray'}`}
-                            className='focus:ring-0'>
+                            className='focus:ring-0 max-sm:rounded-lg max-sm:border'>
                             <Icon className='mr-3 h-4 w-4'/>
                             {label}
                         </Button>
                     ))}
                 </ButtonGroup>
             </div>
-            <div className='max-sm:flex max-sm:flex-col'>
+            <div className=''>
                 <span className='uppercase text-sm text-gray-500 mr-2'>Page Size</span>
                 <ButtonGroup outline>
                     {pageSizeButtons.map((value, i) => (

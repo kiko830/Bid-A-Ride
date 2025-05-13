@@ -1,6 +1,6 @@
 'use client'
 
-import { TextInput, Button } from 'flowbite-react';
+import { Button } from 'flowbite-react';
 import { usePathname, useRouter } from 'next/navigation';
 import React, { useEffect } from 'react'
 import { useForm, FieldValues } from 'react-hook-form';
@@ -18,7 +18,7 @@ type Props = {
 export default function AuctionForm({ auction }: Props) {
     const router = useRouter();
     const pathname = usePathname();
-    const { control, handleSubmit, setFocus, reset, formState: { isSubmitting, isValid } } = useForm({
+    const { control, handleSubmit, setFocus, reset, formState: { isValid } } = useForm({
         mode: 'onTouched'
     });
 
@@ -28,11 +28,12 @@ export default function AuctionForm({ auction }: Props) {
             reset({ make, model, color, mileage, year })
         }
         setFocus('make');
-    }, [setFocus])
+    }, [setFocus, reset, auction])
 
     async function onSubmit(data: FieldValues) {
-        data.reservePrice == '' ? data.reservePrice = 0 : data.reservePrice;
-        console.log('data', data);
+        if (data.reservePrice === '') {
+            data.reservePrice = 0;
+        }
         try {
             let id = '';
             let res;
@@ -51,7 +52,6 @@ export default function AuctionForm({ auction }: Props) {
             }
             router.push(`/auctions/details/${id}`)
         } catch (error: any) {
-            console.log(error);
             toast.error(error.status + ' ' + error.message)
         }
     }

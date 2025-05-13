@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "./nav/Navbar";
-import { Toast } from "flowbite-react";
 import ToasterProvider from "./providers/ToasterProvider";
 import SignalRProvider from "./providers/SignalRProvider";
 import { getCurrentUser } from "./actions/authActions";

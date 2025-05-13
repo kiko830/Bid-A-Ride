@@ -1,9 +1,8 @@
 'use client'
 
-import React, { useEffect, useState } from 'react'
+import React, { useEffect} from 'react'
 import AuctionCard from './AuctionCard';
 import AppPagination from '../components/AppPagination';
-import { Auction, PagedResult } from '@/types';
 import { getData } from '../actions/auctionActions';
 import Filters from './Filters';
 import { useParamsStore } from '@/hooks/useParamsStore';
@@ -13,7 +12,6 @@ import EmptyFilter from '../components/EmptyFilter';
 import { useAuctionStore } from '@/hooks/useAuctionStore';
 
 export default function Listings() {
-    // const [data, setData] = useState<PagedResult<Auction>>();
     const params = useParamsStore(useShallow(state => ({
         pageNumber: state.pageNumber,
         pageSize: state.pageSize,
@@ -41,7 +39,7 @@ export default function Listings() {
         getData(url).then(data => {
             setData(data);
         })
-    }, [url])
+    }, [url, setData])
 
     if (!data) return <h3>Loading...</h3>
 

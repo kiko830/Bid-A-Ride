@@ -3,8 +3,7 @@
 import { useParamsStore } from '@/hooks/useParamsStore'  
 import { usePathname } from 'next/navigation'
 import { useRouter } from 'next/navigation'
-import path from 'path'
-import React, { useState } from 'react'
+import React from 'react'
 import {FaSearch} from 'react-icons/fa'
 
 export default function Search() {

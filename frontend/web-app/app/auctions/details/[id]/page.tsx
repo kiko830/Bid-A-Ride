@@ -1,4 +1,4 @@
-import { getDetailedViewData, getBidsForAuction } from "@/app/actions/auctionActions";
+import { getDetailedViewData} from "@/app/actions/auctionActions";
 import Heading from "@/app/components/Heading";
 import React from "react";
 import CountdownTimer from "../../CountdownTimer";
@@ -7,18 +7,19 @@ import DetailedSpecs from "./DetailedSpecs";
 import { getCurrentUser } from "@/app/actions/authActions";
 import EditButton from "./EditButton";
 import DeleteButton from "./DeleteButton";
-import BidItem from "./BidItem";
 import BidList from "./BidList";
 
-export default async function Details({ params }: { params: { id: string } }) {
-   const { id } = await params
+export default async function Details(props: {
+  params: Promise<{ id: string }>
+}) {
+   const { id } = await props.params
   const data = await getDetailedViewData(id);
   const user = await getCurrentUser();
 
   return (
     <div>
       <div className="lg:flex lg:justify-between">
-        <div className="lg:flex lg:justify-between w-1/2">
+        <div className="lg:flex lg:justify-between lg:w-1/2">
           <Heading title={`${data.make} ${data.model}`} />
           {user?.username === data.seller && 
           <div className="flex gap-3">
