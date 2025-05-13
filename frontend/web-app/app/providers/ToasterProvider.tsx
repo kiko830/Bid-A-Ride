@@ -3,6 +3,6 @@ import { Toaster } from 'react-hot-toast'
 
 export default function ToasterProvider() {
   return (
-    <Toaster />
+    <Toaster position='bottom-right'/>
   )
 }
