@@ -15,17 +15,17 @@ spec:
       - name: notify-svc
         image: kiko830/notify-svc:latest
         imagePullPolicy: Never
-        # env:
-        #   - name: RabbitMQ__Username
-        #     valueFrom:
-        #       secretKeyRef:
-        #         name: rabbit-secret
-        #         key: username
-        #   - name: RabbitMQ__Password
-        #     valueFrom:
-        #       secretKeyRef:
-        #         name: rabbit-secret
-        #         key: password
+        env:
+          - name: RabbitMQ__Username
+            valueFrom:
+              secretKeyRef:
+                name: rabbit-secret
+                key: username
+          - name: RabbitMQ__Password
+            valueFrom:
+              secretKeyRef:
+                name: rabbit-secret
+                key: password
         envFrom:
           - configMapRef:
               name: notify-svc-config

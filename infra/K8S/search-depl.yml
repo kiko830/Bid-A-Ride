@@ -15,22 +15,22 @@ spec:
       - name: search-svc
         image: kiko830/search-svc:latest
         imagePullPolicy: Never
-        # env:
-        #   - name: ConnectionStrings__MongoDbConnection
-        #     valueFrom:
-        #       secretKeyRef:
-        #         name: search-secret
-        #         key: connString
-        #   - name: RabbitMQ__Username
-        #     valueFrom:
-        #       secretKeyRef:
-        #         name: rabbit-secret
-        #         key: username
-        #   - name: RabbitMQ__Password
-        #     valueFrom:
-        #       secretKeyRef:
-        #         name: rabbit-secret
-        #         key: password
+        env:
+          - name: ConnectionStrings__MongoDbConnection
+            valueFrom:
+              secretKeyRef:
+                name: search-secret
+                key: connString
+          - name: RabbitMQ__Username
+            valueFrom:
+              secretKeyRef:
+                name: rabbit-secret
+                key: username
+          - name: RabbitMQ__Password
+            valueFrom:
+              secretKeyRef:
+                name: rabbit-secret
+                key: password
         envFrom:
           - configMapRef:
               name: search-svc-config

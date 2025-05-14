@@ -15,22 +15,22 @@ spec:
       - name: auction-svc
         image: kiko830/auction-svc:latest
         imagePullPolicy: Never
-        # env:
-        #   - name: ConnectionStrings__DefaultConnection
-        #     valueFrom:
-        #       secretKeyRef:
-        #         name: auction-secret
-        #         key: connString
-        #   - name: RabbitMQ__Username
-        #     valueFrom:
-        #       secretKeyRef:
-        #         name: rabbit-secret
-        #         key: username
-        #   - name: RabbitMQ__Password
-        #     valueFrom:
-        #       secretKeyRef:
-        #         name: rabbit-secret
-        #         key: password
+        env:
+          - name: ConnectionStrings__DefaultConnection
+            valueFrom:
+              secretKeyRef:
+                name: auction-secret
+                key: connString
+          - name: RabbitMQ__Username
+            valueFrom:
+              secretKeyRef:
+                name: rabbit-secret
+                key: username
+          - name: RabbitMQ__Password
+            valueFrom:
+              secretKeyRef:
+                name: rabbit-secret
+                key: password
         envFrom:
           - configMapRef:
               name: auction-svc-config
