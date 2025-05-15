@@ -44,7 +44,7 @@ metadata:
   name: gateway-svc-config
 data:
   ASPNETCORE_URLS: http://+:80
-  ClientApp: https://app.bid-a-ride.local
+  ClientApp: https://app.bid-a-ride.kikoc.site
   IdentityServiceUrl: http://identity-clusterip
 ---
 apiVersion: v1
@@ -53,8 +53,8 @@ metadata:
   name: identity-svc-config
 data:
   ASPNETCORE_URLS: http://+:80
-  IssuerUri: https://id.bid-a-ride.local
-  ClientApp: https://app.bid-a-ride.local
+  IssuerUri: https://id.bid-a-ride.kikoc.site
+  ClientApp: https://app.bid-a-ride.kikoc.site
 ---
 apiVersion: v1
 kind: ConfigMap
@@ -62,9 +62,9 @@ metadata:
   name: webapp-svc-config
 data:
   AUTH_SECRET: "Mr0Y2bfJ/405IiqggpHNr8VahG/blaVmOsFDao+N+JM="
-  AUTH_URL: https://app.bid-a-ride.local
+  AUTH_URL: https://app.bid-a-ride.kikoc.site
   AUTH_URL_INTERNAL: http://webapp-clusterip:3000
   API_URL: http://gateway-clusterip/
-  ID_URL: https://id.bid-a-ride.local
+  ID_URL: https://id.bid-a-ride.kikoc.site
   ID_URL_INTERNAL: http://identity-clusterip
-  NOTIFY_URL: https://api.bid-a-ride.local/notifications
+  NOTIFY_URL: https://api.bid-a-ride.kikoc.site/notifications

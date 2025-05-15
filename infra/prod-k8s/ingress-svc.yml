@@ -2,10 +2,18 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: ingress-svc
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
   labels:
     name: ingress-svc
 spec:
   ingressClassName: nginx
+  tls:
+  - hosts:
+    - app.bid-a-ride.kikoc.site
+    - api.bid-a-ride.kikoc.site
+    - id.bid-a-ride.kikoc.site
+    secretName: bid-a-ride-tls
   rules:
   - host: app.bid-a-ride.kikoc.site
     http:
