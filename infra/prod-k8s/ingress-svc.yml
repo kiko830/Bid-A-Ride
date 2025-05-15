@@ -5,15 +5,9 @@ metadata:
   labels:
     name: ingress-svc
 spec:
-  tls:
-  - hosts:
-    - app.bid-a-ride.local
-    - api.bid-a-ride.local
-    - id.bid-a-ride.local
-    secretName: bid-a-ride-app-tls
   ingressClassName: nginx
   rules:
-  - host: app.bid-a-ride.local
+  - host: app.bid-a-ride.kikoc.site
     http:
       paths:
       - pathType: Prefix
@@ -23,7 +17,7 @@ spec:
             name: webapp-clusterip
             port: 
               number: 3000
-  - host: api.bid-a-ride.local
+  - host: api.bid-a-ride.kikoc.site
     http:
       paths:
       - pathType: Prefix
@@ -33,7 +27,7 @@ spec:
             name: gateway-clusterip
             port: 
               number: 80
-  - host: id.bid-a-ride.local
+  - host: id.bid-a-ride.kikoc.site
     http:
       paths:
       - pathType: Prefix
