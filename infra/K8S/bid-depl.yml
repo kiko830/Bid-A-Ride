@@ -14,7 +14,6 @@ spec:
       containers:
       - name: bid-svc
         image: kiko830/bid-svc:latest
-        imagePullPolicy: Never
         env:
           - name: ConnectionStrings__BidDbConnection
             valueFrom:

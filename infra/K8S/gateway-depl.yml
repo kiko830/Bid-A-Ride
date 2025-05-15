@@ -14,7 +14,6 @@ spec:
       containers:
       - name: gateway-svc
         image: kiko830/gateway-svc:latest
-        imagePullPolicy: Never
         envFrom:
           - configMapRef:
               name: gateway-svc-config

@@ -14,7 +14,6 @@ spec:
       containers:
       - name: identity-svc
         image: kiko830/identity-svc:latest
-        imagePullPolicy: Never
         env:
           - name: ConnectionStrings__DefaultConnection
             valueFrom:
